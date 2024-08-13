@@ -1,3 +1,4 @@
+using NutritionTracker.Infrastructure;
 using NutritionTracker.Application;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDataSourceContext();
 builder.Services.AddApplicationServices();
 
 var app = builder.Build();

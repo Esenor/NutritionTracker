@@ -1,0 +1,16 @@
+services:
+
+  nutrition-tracker-db:
+    image: postgres
+    hostname: nutrition-tracker-db
+    environment:
+      POSTGRES_PASSWORD: DbP4ssw0rd
+      POSTGRES_USER: DbUs3r
+    ports:
+      - 5432:5432
+    volumes:
+      - nutrition-tracker_volume:/var/lib/postgresql/data
+
+volumes:
+  nutrition-tracker_volume:
+    
