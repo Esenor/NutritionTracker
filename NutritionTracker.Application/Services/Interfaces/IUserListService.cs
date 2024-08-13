@@ -2,7 +2,7 @@
 
 namespace NutritionTracker.Application.Services.Interfaces
 {
-    public interface IUserList
+    public interface IUserListService
     {
         public Task<IEnumerable<User>> List();
     }

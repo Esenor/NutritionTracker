@@ -4,7 +4,7 @@ using NutritionTracker.Infrastructure.Database.Repositories.Interfaces;
 
 namespace NutritionTracker.Application.Services
 {
-    public class UserListService : IUserList
+    public class UserListService : IUserListService
     {
         private readonly IUserRepository _userRepository;
 

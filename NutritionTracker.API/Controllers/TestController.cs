@@ -9,9 +9,9 @@ namespace NutritionTracker.API.Controllers
     public class TestController : ControllerBase
     {
         private readonly ILogger<TestController> _logger;
-        private readonly IUserList _userListService;
+        private readonly IUserListService _userListService;
 
-        public TestController(ILogger<TestController> logger, IUserList userListService)
+        public TestController(ILogger<TestController> logger, IUserListService userListService)
         {
             _logger = logger;
             _userListService = userListService;

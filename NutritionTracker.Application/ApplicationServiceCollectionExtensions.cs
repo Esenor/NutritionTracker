@@ -8,7 +8,7 @@ namespace NutritionTracker.Application
     {
         public static void AddApplicationServices(this IServiceCollection services)
         {
-            services.AddScoped<IUserList, UserListService>();
+            services.AddScoped<IUserListService, UserListService>();
         }
     }
 }
