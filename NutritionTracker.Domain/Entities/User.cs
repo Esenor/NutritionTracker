@@ -7,14 +7,16 @@
         public string Hash { get; }
         public string Salt { get; }
         public IEnumerable<string> Roles { get; }
+        public bool Enabled { get; }
 
-        public User(int id, string email, string hash, string salt, IEnumerable<string> roles)
+        public User(int id, string email, string hash, string salt, IEnumerable<string> roles, bool enabled)
         {
             Id = id;
             Email = email;
             Hash = hash;
             Salt = salt;
             Roles = roles;
+            Enabled = enabled;
         }
     }
 }

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NutritionTracker.API", "NutritionTracker.API\NutritionTracker.API.csproj", "{56A54EAE-81A8-4EC4-BA9D-160F89A1CA05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NutritionTracker.API", "NutritionTracker.API\NutritionTracker.API.csproj", "{56A54EAE-81A8-4EC4-BA9D-160F89A1CA05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NutritionTracker.Domain", "NutritionTracker.Domain\NutritionTracker.Domain.csproj", "{70A08169-3DD7-4C6C-8B42-BEFCA40A3006}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NutritionTracker.Domain", "NutritionTracker.Domain\NutritionTracker.Domain.csproj", "{70A08169-3DD7-4C6C-8B42-BEFCA40A3006}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NutritionTracker.Infrastructure", "NutritionTracker.Infrastructure\NutritionTracker.Infrastructure.csproj", "{659F8EFB-369C-4A86-AE9C-BB6B970B476B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NutritionTracker.Infrastructure", "NutritionTracker.Infrastructure\NutritionTracker.Infrastructure.csproj", "{659F8EFB-369C-4A86-AE9C-BB6B970B476B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NutritionTracker.Application", "NutritionTracker.Application\NutritionTracker.Application.csproj", "{CB696025-70BA-4FF8-AA7E-48F0EDA829C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NutritionTracker.Application", "NutritionTracker.Application\NutritionTracker.Application.csproj", "{CB696025-70BA-4FF8-AA7E-48F0EDA829C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
