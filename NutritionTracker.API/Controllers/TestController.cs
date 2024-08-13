@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NutritionTracker.Application.Services.Interfaces;
 using NutritionTracker.Domain.Entities;
@@ -18,6 +19,7 @@ namespace NutritionTracker.API.Controllers
         }
 
         [HttpGet()]
+        [Authorize()]
         public Task<IEnumerable<User>> Get()
         {
             return _userListService.List();
