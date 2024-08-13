@@ -12,6 +12,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDataSourceContext();
 builder.Services.AddApplicationServices();
+builder.Services.AddInfrastructureRepositories();
 
 var app = builder.Build();
 
