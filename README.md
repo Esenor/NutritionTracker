@@ -5,6 +5,14 @@
 
 ### Database
 
+#### Start Dev DB Docker Container
+
+> On terminal
+
+```bash
+docker-compose up -d
+```
+
 #### Create a migration
 
 > On NutritionTracker.Infrastructure default projet on Pacage manager console
