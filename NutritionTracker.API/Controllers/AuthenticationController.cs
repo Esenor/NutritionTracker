@@ -25,5 +25,11 @@ namespace NutritionTracker.API.Controllers
 
             return Ok(token);
         }
+
+        [HttpPost("signup")]
+        public ActionResult SignUp(AuthenticationSignUpDTO authenticationSignUp)
+        {
+            return Ok();
+        }
     }
 }
