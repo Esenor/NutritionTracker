@@ -20,8 +20,8 @@ namespace NutritionTracker.Infrastructure.Database.EntityConfigurations
             builder.Property(u => u.Salt).IsRequired();
             builder.Property(u => u.Salt).HasMaxLength(128);
 
-            builder.Property(u => u.Roles).IsRequired();
-            builder.Property(u => u.Roles).HasMaxLength(128);
+            builder.Property(u => u.Role).IsRequired();
+            builder.Property(u => u.Role).HasMaxLength(32);
 
             builder.Property(u => u.Enabled).IsRequired();            
         }

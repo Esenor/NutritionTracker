@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NutritionTracker.API.DTO.Authentication;
-using NutritionTracker.API.Services.Interfaces;
+using NutritionTracker.Infrastructure.Authentication.Services.Interfaces;
+
 
 
 namespace NutritionTracker.API.Controllers

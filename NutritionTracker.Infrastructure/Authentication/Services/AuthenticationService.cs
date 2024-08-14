@@ -1,11 +1,12 @@
-﻿using Microsoft.IdentityModel.JsonWebTokens;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
-using NutritionTracker.API.Services.Interfaces;
+using NutritionTracker.Infrastructure.Authentication.Services.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace NutritionTracker.API.Services
+namespace NutritionTracker.Infrastructure.Authentication.Services
 {
     public class AuthenticationService(IConfiguration config) : IAuthenticationService
     {
@@ -18,7 +19,7 @@ namespace NutritionTracker.API.Services
             }
 
             JsonWebTokenHandler.DefaultInboundClaimTypeMap.Clear();
-            
+
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
 
             byte[] key = Encoding.ASCII.GetBytes(config.GetSection("Values").GetSection("JwtSecret").Value ?? "");

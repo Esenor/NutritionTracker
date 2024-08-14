@@ -8,18 +8,18 @@ using NutritionTracker.Data;
 
 #nullable disable
 
-namespace NutritionTracker.Infrastructure.Migrations
+namespace NutritionTracker.Infrastructure.Database.Migrations
 {
     [DbContext(typeof(DataDbContext))]
-    [Migration("20240813071154_InitialUserMigration")]
-    partial class InitialUserMigration
+    [Migration("20240814083747_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.7")
+                .HasAnnotation("ProductVersion", "8.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -34,19 +34,26 @@ namespace NutritionTracker.Infrastructure.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)");
+
+                    b.Property<bool>("Enabled")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Hash")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)");
 
-                    b.Property<string[]>("Roles")
+                    b.Property<string>("Role")
                         .IsRequired()
-                        .HasColumnType("text[]");
+                        .HasMaxLength(32)
+                        .HasColumnType("character varying(32)");
 
                     b.Property<string>("Salt")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)");
 
                     b.HasKey("Id");
 

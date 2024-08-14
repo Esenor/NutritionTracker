@@ -15,7 +15,7 @@ docker-compose up -d
 
 #### Create a migration
 
-> On NutritionTracker.Infrastructure default projet on Pacage manager console
+> On NutritionTracker.Infrastructure default projet on Package manager console
 
 ```bash
 Add-Migration -o Database/Migrations MigrationName
@@ -23,7 +23,7 @@ Add-Migration -o Database/Migrations MigrationName
 
 #### Apply migrations
 
-> On NutritionTracker.Infrastructure default projet on Pacage manager console
+> On NutritionTracker.Infrastructure default projet on Package manager console
 
 ```bash
 Update-Database

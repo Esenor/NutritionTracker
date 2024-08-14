@@ -3,8 +3,6 @@ using NutritionTracker.Application;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using NutritionTracker.API.Services.Interfaces;
-using NutritionTracker.API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,13 +13,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Add API Services
-builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
-
 // Add services from other projects
 builder.Services.AddDataSourceContext();
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureRepositories();
+builder.Services.AddInfrastructureAuthentication();
 
 // Add JWT authentication and authorization
 builder.Services.AddAuthentication(options =>

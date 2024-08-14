@@ -6,16 +6,16 @@
         public string Email { get; }
         public string Hash { get; }
         public string Salt { get; }
-        public IEnumerable<string> Roles { get; }
+        public string Role { get; }
         public bool Enabled { get; }
 
-        public User(int id, string email, string hash, string salt, IEnumerable<string> roles, bool enabled)
+        public User(int id, string email, string hash, string salt, string role, bool enabled)
         {
             Id = id;
             Email = email;
             Hash = hash;
             Salt = salt;
-            Roles = roles;
+            Role = role;
             Enabled = enabled;
         }
     }

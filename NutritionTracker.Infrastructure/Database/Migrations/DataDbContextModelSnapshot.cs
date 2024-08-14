@@ -7,7 +7,7 @@ using NutritionTracker.Data;
 
 #nullable disable
 
-namespace NutritionTracker.Infrastructure.Migrations
+namespace NutritionTracker.Infrastructure.Database.Migrations
 {
     [DbContext(typeof(DataDbContext))]
     partial class DataDbContextModelSnapshot : ModelSnapshot
@@ -16,7 +16,7 @@ namespace NutritionTracker.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.7")
+                .HasAnnotation("ProductVersion", "8.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -42,10 +42,10 @@ namespace NutritionTracker.Infrastructure.Migrations
                         .HasMaxLength(128)
                         .HasColumnType("character varying(128)");
 
-                    b.Property<string[]>("Roles")
+                    b.Property<string>("Role")
                         .IsRequired()
-                        .HasMaxLength(128)
-                        .HasColumnType("text[]");
+                        .HasMaxLength(32)
+                        .HasColumnType("character varying(32)");
 
                     b.Property<string>("Salt")
                         .IsRequired()

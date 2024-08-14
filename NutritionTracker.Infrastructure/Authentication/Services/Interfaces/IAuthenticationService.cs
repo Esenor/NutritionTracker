@@ -1,4 +1,4 @@
-﻿namespace NutritionTracker.API.Services.Interfaces
+﻿namespace NutritionTracker.Infrastructure.Authentication.Services.Interfaces
 {
     public interface IAuthenticationService
     {
