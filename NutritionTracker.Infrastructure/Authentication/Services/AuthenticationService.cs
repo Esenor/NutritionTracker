@@ -42,7 +42,7 @@ namespace NutritionTracker.Infrastructure.Authentication.Services
                 Subject = new ClaimsIdentity(
                 [
                     new(ClaimTypes.Email, user.Email),
-                    new("sub", user.Id.ToString()),
+                    new(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 ]),
                 Expires = DateTime.UtcNow.AddMinutes(30),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),

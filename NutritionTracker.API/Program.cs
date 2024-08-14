@@ -3,6 +3,8 @@ using NutritionTracker.Application;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.Extensions.Options;
+using NutritionTracker.Infrastructure.Authentication.PolicyProvider;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,7 +42,6 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true,
     };
 });
-builder.Services.AddAuthorization();
 
 var app = builder.Build();
 

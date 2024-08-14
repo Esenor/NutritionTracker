@@ -9,5 +9,6 @@ namespace NutritionTracker.Infrastructure.Database.Repositories.Interfaces
         public User Add(User user);
 
         public User? FindByEmail(string email);
+        public User? FindByEmailAndId(string email, int id);
     }
 }

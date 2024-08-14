@@ -4,6 +4,9 @@ using NutritionTracker.Infrastructure.Database.Repositories;
 using NutritionTracker.Infrastructure.Database.Repositories.Interfaces;
 using NutritionTracker.Infrastructure.Authentication.Services;
 using NutritionTracker.Infrastructure.Authentication.Services.Interfaces;
+using NutritionTracker.Infrastructure.Authentication.AuthorizationHandler;
+using Microsoft.AspNetCore.Authorization;
+using NutritionTracker.Infrastructure.Authentication.PolicyProvider;
 
 namespace NutritionTracker.Infrastructure
 {
@@ -21,8 +24,11 @@ namespace NutritionTracker.Infrastructure
 
         public static void AddInfrastructureAuthentication(this IServiceCollection services)
         {
-            services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<IPasswordService, PasswordService>();
+
+            services.AddSingleton<IAuthorizationPolicyProvider, UserPolicyProvider>();
+            services.AddScoped<IAuthenticationService, AuthenticationService>();
+            services.AddScoped<IAuthorizationHandler, UserAuthorizationHandler>();
         }
     }
 }
