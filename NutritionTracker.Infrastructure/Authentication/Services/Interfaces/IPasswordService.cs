@@ -1,4 +1,4 @@
-﻿namespace NutritionTracker.Application.Services.Interfaces
+﻿namespace NutritionTracker.Infrastructure.Authentication.Services.Interfaces
 {
     public interface IPasswordService
     {

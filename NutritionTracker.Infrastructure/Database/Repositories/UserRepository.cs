@@ -20,5 +20,10 @@ namespace NutritionTracker.Infrastructure.Database.Repositories
             _dataDbContext.SaveChanges();
             return user;
         }
+
+        public User? FindByEmail(string email)
+        {
+            return _dataDbContext.Users.FirstOrDefault(u => u.Email == email);
+        }
     }
 }

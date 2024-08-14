@@ -9,7 +9,6 @@ namespace NutritionTracker.Application
         public static void AddApplicationServices(this IServiceCollection services)
         {
             services.AddScoped<IUserListService, UserListService>();
-            services.AddScoped<IPasswordService, PasswordService>();
         }
     }
 }

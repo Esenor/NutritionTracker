@@ -2,6 +2,7 @@
 using NutritionTracker.Application.Services;
 using NutritionTracker.Domain.Entities;
 using NutritionTracker.Infrastructure.Database.Repositories.Interfaces;
+using System.Text;
 
 namespace NutritionTracker.Application.Test.Services
 {
@@ -13,13 +14,13 @@ namespace NutritionTracker.Application.Test.Services
             Mock<IUserRepository> mockUserRepository = new();
 
             IEnumerable<User> inputUsers = [
-                new User(1, "admin@localhost", "azeccc", "zeiouzz", "ADMIN", true),
-                new User(2, "user@localhost", "qsdqf", "oiuzeghiozeh", "USER", false),
+                new User(1, "admin@localhost", "azeccc", Encoding.Unicode.GetBytes("zeiouzz"), "ADMIN", true),
+                new User(2, "user@localhost", "qsdqf", Encoding.Unicode.GetBytes("oiuzeghiozeh"), "USER", false),
             ];
 
             IEnumerable<User> expectedUsers = [
-                new User(1, "admin@localhost", "azeccc", "zeiouzz", "ADMIN", true),
-                new User(2, "user@localhost", "qsdqf", "oiuzeghiozeh", "USER", false),
+                new User(1, "admin@localhost", "azeccc", Encoding.Unicode.GetBytes("zeiouzz"), "ADMIN", true),
+                new User(2, "user@localhost", "qsdqf", Encoding.Unicode.GetBytes("oiuzeghiozeh"), "USER", false),
             ];
 
             mockUserRepository.Setup(r => r.ListAll()).ReturnsAsync(inputUsers);

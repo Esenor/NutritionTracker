@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
+using NutritionTracker.Infrastructure.Authentication.Services.Interfaces;
+using NutritionTracker.Infrastructure.Authentication.Services;
 
 #nullable disable
 
@@ -19,7 +21,7 @@ namespace NutritionTracker.Infrastructure.Database.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Email = table.Column<string>(type: "character varying(128)", maxLength: 128, nullable: false),
                     Hash = table.Column<string>(type: "character varying(128)", maxLength: 128, nullable: false),
-                    Salt = table.Column<string>(type: "character varying(128)", maxLength: 128, nullable: false),
+                    Salt = table.Column<byte[]>(type: "bytea", maxLength: 128, nullable: false),
                     Role = table.Column<string>(type: "character varying(32)", maxLength: 32, nullable: false),
                     Enabled = table.Column<bool>(type: "boolean", nullable: false)
                 },
@@ -33,6 +35,14 @@ namespace NutritionTracker.Infrastructure.Database.Migrations
                 table: "Users",
                 column: "Email",
                 unique: true);
+
+            IPasswordService passwordService = new PasswordService();
+            byte[] salt = passwordService.GenerateSalt();
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: ["Email", "Hash", "Salt", "Role", "Enabled"],
+                values: ["admin@localhost", passwordService.HashPassword("admin", salt), salt, "Admin", true]);
         }
 
         /// <inheritdoc />

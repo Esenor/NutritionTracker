@@ -22,6 +22,7 @@ namespace NutritionTracker.Infrastructure
         public static void AddInfrastructureAuthentication(this IServiceCollection services)
         {
             services.AddScoped<IAuthenticationService, AuthenticationService>();
+            services.AddScoped<IPasswordService, PasswordService>();
         }
     }
 }

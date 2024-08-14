@@ -7,5 +7,7 @@ namespace NutritionTracker.Infrastructure.Database.Repositories.Interfaces
         public Task<IEnumerable<User>> ListAll();
 
         public User Add(User user);
+
+        public User? FindByEmail(string email);
     }
 }

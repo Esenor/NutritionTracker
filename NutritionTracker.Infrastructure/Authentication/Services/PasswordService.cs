@@ -1,8 +1,8 @@
-﻿using NutritionTracker.Application.Services.Interfaces;
+﻿using NutritionTracker.Infrastructure.Authentication.Services.Interfaces;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace NutritionTracker.Application.Services
+namespace NutritionTracker.Infrastructure.Authentication.Services
 {
     public class PasswordService : IPasswordService
     {
