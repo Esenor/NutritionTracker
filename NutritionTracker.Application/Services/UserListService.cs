@@ -4,18 +4,13 @@ using NutritionTracker.Infrastructure.Database.Repositories.Interfaces;
 
 namespace NutritionTracker.Application.Services
 {
-    public class UserListService : IUserListService
+    public class UserListService(IUserRepository userRepository) : IUserListService
     {
-        private readonly IUserRepository _userRepository;
-
-        public UserListService(IUserRepository userRepository)
-        {
-            _userRepository = userRepository;
-        }
+        private readonly IUserRepository userRepository = userRepository;
 
         public Task<IEnumerable<User>> List()
         {
-            return _userRepository.ListAll();
+            return userRepository.ListAll();
         }
     }
 }

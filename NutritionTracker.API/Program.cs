@@ -1,10 +1,5 @@
 using NutritionTracker.Infrastructure;
 using NutritionTracker.Application;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using Microsoft.Extensions.Options;
-using NutritionTracker.Infrastructure.Authentication.PolicyProvider;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,29 +14,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDataSourceContext();
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureRepositories();
-builder.Services.AddInfrastructureAuthentication();
-
-// Add JWT authentication and authorization
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Values:JwtSecret"] ?? "")),
-        LifetimeValidator = (before, expires, token, param) =>
-        {
-            return expires > DateTime.UtcNow;
-        },
-        ValidateIssuer = false,
-        ValidateAudience = false,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-    };
-});
+builder.Services.AddInfrastructureServices();
+builder.Services.AddInfrastructureAuthentication(builder.Configuration);
 
 var app = builder.Build();
 

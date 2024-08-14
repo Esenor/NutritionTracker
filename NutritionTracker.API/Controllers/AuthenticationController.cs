@@ -10,13 +10,13 @@ namespace NutritionTracker.API.Controllers
     [Route("auth")]
     public class AuthenticationController(ILogger<TestController> logger, IAuthenticationService authenticationService) : ControllerBase
     {
-        private readonly ILogger<TestController> _logger = logger;
-        private readonly IAuthenticationService _authenticationService = authenticationService;
+        private readonly ILogger<TestController> logger = logger;
+        private readonly IAuthenticationService authenticationService = authenticationService;
 
         [HttpPost("login")]
         public ActionResult<string> Login(AuthenticationLoginDTO authenticationLogin)
         {
-            string token = _authenticationService.Login(authenticationLogin.Email, authenticationLogin.Password);
+            string token = authenticationService.Login(authenticationLogin.Email, authenticationLogin.Password);
 
             if (token == string.Empty)
             {
