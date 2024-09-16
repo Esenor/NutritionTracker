@@ -42,7 +42,7 @@ namespace NutritionTracker.Infrastructure.Database.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: ["Email", "Hash", "Salt", "Role", "Enabled"],
-                values: ["admin@localhost", passwordService.HashPassword("admin", salt), salt, "Admin", true]);
+                values: ["admin@localhost", passwordService.HashPassword("admin", salt), salt, "ADMIN", true]);
         }
 
         /// <inheritdoc />

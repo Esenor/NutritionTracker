@@ -53,7 +53,7 @@ namespace NutritionTracker.Infrastructure.Authentication.AuthorizationHandler
             }
 
             // If the user is authenticated, but the user's role is not in the list of roles, the user will be null
-            if (roles.Count() > 0 && roles.Contains(user.Role) == false)
+            if (roles.Count() > 0 && roles.Contains(user.Role.ToUpper()) == false)
             {
                 context.Fail();
                 return Task.CompletedTask;
