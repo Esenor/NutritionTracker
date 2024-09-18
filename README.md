@@ -29,3 +29,18 @@ Add-Migration -o Database/Migrations MigrationName
 Update-Database
 ```
 
+#### Build with linux CLI
+
+> On linux bash at project root level
+
+```bash
+dotnet build
+```
+
+#### Run with linux CLI
+
+> On linux bash at project root level
+
+```bash
+dotnet run --project NutritionTracker.API/NutritionTracker.API.csproj --lp http
+```
