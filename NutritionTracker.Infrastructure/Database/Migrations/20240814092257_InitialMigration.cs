@@ -2,6 +2,7 @@
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using NutritionTracker.Infrastructure.Authentication.Services.Interfaces;
 using NutritionTracker.Infrastructure.Authentication.Services;
+using NutritionTracker.Domain.Entities;
 
 #nullable disable
 
@@ -42,7 +43,7 @@ namespace NutritionTracker.Infrastructure.Database.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: ["Email", "Hash", "Salt", "Role", "Enabled"],
-                values: ["admin@localhost", passwordService.HashPassword("admin", salt), salt, "ADMIN", true]);
+                values: ["admin@localhost", passwordService.HashPassword("admin", salt), salt, User.AdminRole, true]);
         }
 
         /// <inheritdoc />

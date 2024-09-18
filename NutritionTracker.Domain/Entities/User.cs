@@ -2,6 +2,10 @@
 {
     public class User
     {
+        public const string AdminRole = "ADMIN";
+        public const string UserRole = "USER";
+        public const string GuestRole = "GUEST";
+
         public int Id { get; }
         public string Email { get; }
         public string Hash { get; }
